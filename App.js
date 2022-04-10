@@ -1,12 +1,50 @@
-import { StatusBar } from 'expo-status-bar';
+import React,{useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+//SCREENS
+import MenuScreen from './screens/MenuScreen';
+import OneMobileGameScreen from './screens/OneMobileGameScreen';
+import EnterNamesScreen from './screens/EnterNamesScreen';
+import RulesMobileScreen from './screens/RulesMobileScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import GameConfigScreen from './screens/GameConfigScreen';
+import ConfirmationPlayersScreen from './screens/ConfirmationPlayersScreen';
+//NAVIGATION
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="MenuScreen">
+          <Stack.Screen 
+          name="MenuScreen"
+          options={{
+            headerShown: false,
+          }}
+          component={MenuScreen}
+           />
+
+          <Stack.Screen 
+          name="OneMobileScreen"
+          component={OneMobileGameScreen}/>
+          <Stack.Screen name="RulesMobileScreen" component={RulesMobileScreen}/>
+          <Stack.Screen name="Config" component={GameConfigScreen}/>
+          <Stack.Screen name="Settings" component={SettingsScreen}/>
+          <Stack.Screen 
+          name="EnterNames"
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+          component={EnterNamesScreen}/>
+          <Stack.Screen name="confirmation" component={ConfirmationPlayersScreen}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
