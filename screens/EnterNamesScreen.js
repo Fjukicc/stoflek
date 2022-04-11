@@ -79,6 +79,7 @@ const EnterNamesScreen = () => {
   }
 
 
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.enterNamesScreenContainer}>

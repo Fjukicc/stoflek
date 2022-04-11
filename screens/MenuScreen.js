@@ -8,10 +8,17 @@ import Menu from '../components/Menu';
 
 
 const MenuScreen = () => {
+
+    function onImageLoadingEnd(){
+        console.log('end');
+    }
+
+
     return (
         <LinearGradient colors={['white', 'black']} style={styles.menuScreenContainer}>
-                <ImageBackground source={background} resizeMode='cover' style={styles.menuScreenContainer} imageStyle={styles.bgImage}>
-            <View style={styles.menuTitleOuterContainer}>
+                <ImageBackground source={background} resizeMode='cover' style={styles.menuScreenContainer} 
+                imageStyle={styles.bgImage} onLoadEnd={onImageLoadingEnd}>
+                <View style={styles.menuTitleOuterContainer}>
                 <View style={styles.menuTitleInnerContainer}>
                     <Text style={styles.titleText}>ŠTOFLEK</Text>
                 </View>

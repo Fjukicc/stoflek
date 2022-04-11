@@ -24,12 +24,13 @@ export default function App() {
           name="MenuScreen"
           options={{
             headerShown: false,
+            gestureEnabled: false,
           }}
           component={MenuScreen}
            />
 
           <Stack.Screen 
-          name="OneMobileScreen"
+          name="gameScreen"
           component={OneMobileGameScreen}/>
           <Stack.Screen name="RulesMobileScreen" component={RulesMobileScreen}/>
           <Stack.Screen name="Config" component={GameConfigScreen}/>
@@ -41,7 +42,12 @@ export default function App() {
             gestureEnabled: false,
           }}
           component={EnterNamesScreen}/>
-          <Stack.Screen name="confirmation" component={ConfirmationPlayersScreen}/>
+          <Stack.Screen name="Confirmation"
+           options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+          component={ConfirmationPlayersScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     </>
