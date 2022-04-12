@@ -18,31 +18,35 @@ const MenuButton = ({children, onPress}) => {
 const styles = StyleSheet.create({
     menuButtonStyle:{
         fontSize: 18,
-        letterSpacing: 2.2,
+        letterSpacing: 4,
         fontWeight: 'bold',
-        color: Colors.secondary,
+        color: 'black',
         textAlign: 'center',
     },
     menuButtonStyleContainer:{
         marginVertical: 16,
         width: '84%',
         maxWidth: 400,
-        borderRadius: 6,
-        borderBottomWidth: 3,
-        borderTopWidth: 3,
-        borderLeftWidth: 12,
-        borderRightWidth: 12,
+        borderRadius: 2,
+        padding: 4,
         overflow: 'hidden',
-        borderColor: Colors.secondary,
-        opacity: 0.85,
+        backgroundColor: '#59805B',
+        elevation: 4,
+        shadowColor: Colors.third,
+        shadowOffset:{
+            width: 0, height: 2,
+        },
+        shadowRadius: 30,
+        shadowOpacity: 0.9,
     },
     menuButtonInnerContainer:{
-        backgroundColor: Colors.primary,
+        backgroundColor: '#59805B',
         paddingVertical: 16,
         paddingHorizontal: 14,
+        borderRadius: 12,
     },
     pressed:{
-        opacity: 0.75,
+        opacity: 0.45,
     }
 })
 

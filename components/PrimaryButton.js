@@ -2,8 +2,7 @@ import React from 'react';
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 import {Colors} from '../static/Colors';
 
-const PrimaryButton = ({children, onPress}) => {
-
+const PrimaryButton = ({children, onPress, width}) => {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable style={({pressed})=> pressed ? [styles.buttonInnerContainer, styles.pressed] : styles.buttonInnerContainer} 
@@ -37,6 +36,7 @@ const styles = StyleSheet.create({
       opacity: 0.75,
   }
 });
+
 
 export default PrimaryButton;
 

@@ -33,8 +33,9 @@ const PlayerNames = ({
 
 
   return (
-    <View>
-      <Text style={styles.titleText}>{playersCounter}. Player Name</Text>
+    <View style={{width: '100%', alignItems: 'center'}}>
+      <Text>{playersCounter}.</Text>
+      <Text style={styles.titleText}>PLAYER NAME</Text>
       <TextInput
         placeholder="name"
         style={styles.inputStyle}
@@ -48,18 +49,20 @@ const PlayerNames = ({
 
 const styles = StyleSheet.create({
   titleText: {
-    fontSize: 26,
+    fontSize: 42,
     fontWeight: 'bold',
     letterSpacing: 2,
     textAlign: 'center',
   },
   inputStyle: {
-    width: 220,
-    maxWidth: 300,
+    width: '90%',
+    height: 46,
     fontSize: 32,
-    borderBottomColor: Colors.primary,
-    borderBottomWidth: 3,
+    borderColor: Colors.primary,
+    borderWidth: 3,
+    backgroundColor: Colors.primary,
     textAlign: 'center',
+    color: Colors.secondary,
     marginBottom: 24,
     marginTop: 16,
   },

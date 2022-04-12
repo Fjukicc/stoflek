@@ -31,7 +31,12 @@ export default function App() {
 
           <Stack.Screen 
           name="gameScreen"
-          component={OneMobileGameScreen}/>
+          component={OneMobileGameScreen}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
+          />
           <Stack.Screen name="RulesMobileScreen" component={RulesMobileScreen}/>
           <Stack.Screen name="Config" component={GameConfigScreen}/>
           <Stack.Screen name="Settings" component={SettingsScreen}/>

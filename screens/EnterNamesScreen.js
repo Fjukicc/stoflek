@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  TextInput,
+  ImageBackground,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Text,
 } from 'react-native';
-import PrimaryButton from '../components/PrimaryButton';
+import NamesButton from '../components/NamesButton';
 import {Colors} from '../static/Colors';
 import {useNavigation} from '@react-navigation/native';
 import HowManyPlayers from '../components/enternamecomponents/HowManyPlayers';
 import PlayerNames from '../components/enternamecomponents/PlayerNames';
+import background from '../assets/madarske-karte/input-bg.png';
+import Header from '../components/Header';
 
 const EnterNamesScreen = () => {
   const navigation = useNavigation();
@@ -42,20 +44,22 @@ const EnterNamesScreen = () => {
     setIsNextButtonSuccess(!isNextButtonSuccess);
   }
 
-  function onPlayersNameInputHandler(text){
+  function onPlayersNameInputHandler(text) {
     setCurrentPlayerName(text);
   }
 
-  function playerNamesHandler(){
-    let id=playersCounter;
-    setPlayersNames((playerNames) => [...playerNames, {
+  function playerNamesHandler() {
+    let id = playersCounter;
+    setPlayersNames((playerNames) => [
+      ...playerNames,
+      {
         id: id,
         name: currentPlayerName,
-    }])
-    setPlayersCounter(playersCounter+1);
+      },
+    ]);
+    setPlayersCounter(playersCounter + 1);
     setCurrentPlayerName('');
   }
-
 
   function onNextPress() {
     let choosenNumberOfPlayers = parseInt(numberOfPlayers);
@@ -78,11 +82,13 @@ const EnterNamesScreen = () => {
     setNumberOfPlayers(null);
   }
 
-
-
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View style={styles.enterNamesScreenContainer}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={true}>
+      <ImageBackground
+        source={background}
+        style={styles.enterNamesScreenContainer}
+      >
+        <Header />
         <View style={styles.mainInfoContainer}>
           {isNextButtonSuccess ? (
             <PlayerNames
@@ -95,50 +101,64 @@ const EnterNamesScreen = () => {
             />
           ) : (
             <HowManyPlayers
-              OnNextPress={onNextPress}
               numberOfPlayers={numberOfPlayers}
               numberOfPlayersInputHandler={numberOfPlayersInputHandler}
             />
           )}
+          <View style={styles.buttonsContainer}>
+          <View style={styles.leftButtonContainer}>
+          <NamesButton onPress={onBackToMenuPress}>
+            Back
+          </NamesButton>
+          </View>
+          <View style={styles.rightButtonContainer}>
+          <NamesButton onPress={onNextPress}>Next</NamesButton>
+          </View>
         </View>
-        <View style={styles.buttonsContainer}>
-          {isNextButtonSuccess && (
-              <PrimaryButton onPress={onBackPress}>Back</PrimaryButton>
-          )}
-          <PrimaryButton onPress={onBackToMenuPress}>
-            Back To Menu
-          </PrimaryButton>
         </View>
-      </View>
+        <View style={styles.footerContainer}/>
+      </ImageBackground>
     </TouchableWithoutFeedback>
   );
 };
 
 const styles = StyleSheet.create({
   enterNamesScreenContainer: {
-    flex: 1,
     width: '100%',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    flex: 1,
   },
   mainInfoContainer: {
-    maxWidth: '80%',
-    width: '80%',
+    flex: 3,
+    maxWidth: '100%',
+    width: '100%',
     height: 'auto',
     paddingVertical: 24,
-    backgroundColor: Colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 16,
   },
   dividerText: {
     textAlign: 'center',
   },
+  footerContainer: {
+    flex: 1,
+  },
   buttonsContainer:{
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      alignItems: 'center',
+    marginTop: 32,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '94%',
+    height: 64,
+  },
+  leftButtonContainer:{
+    width: '50%',
+    marginRight: 4,
+    borderRightColor: 'black',
+  },
+  rightButtonContainer:{
+    width: '50%',
+    marginLeft: 4,
+    borderLeftColor: 'black',
   }
 });
 

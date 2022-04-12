@@ -38,13 +38,15 @@ export const PlayingCards = [
         karta: 'as',
         id: 1,
         image: as_herc,
+        savable: 'no',
     },
     {
         title: 'as_pik',
         simbol: 'pik',
-        karta: 'as',
+        karta: 'no',
         id: 2,
         image: as_pik,
+        savable: 'no',
     },
     {
         title: 'as_tref',
@@ -52,6 +54,7 @@ export const PlayingCards = [
         karta: 'as',
         id: 3,
         image: as_tref,
+        savable: 'no',
     },
     {
         title: 'as_karo',
@@ -59,6 +62,7 @@ export const PlayingCards = [
         karta: 'as',
         id: 4,
         image: as_karo,
+        savable: 'no',
     },
     {
         title: 'kralj_herc',
@@ -66,6 +70,7 @@ export const PlayingCards = [
         karta: 'kralj',
         id: 5,
         image: kralj_herc,
+        savable: 'yes',
     },
     {
         title: 'kralj_pik',
@@ -73,6 +78,7 @@ export const PlayingCards = [
         karta: 'kralj',
         id: 6,
         image: kralj_pik,
+        savable: 'yes',
     },
     {
         title: 'kralj_tref',
@@ -80,6 +86,7 @@ export const PlayingCards = [
         karta: 'kralj',
         id: 7,
         image: kralj_tref,
+        savable: 'yes',
     },
     {
         title: 'kralj_karo',
@@ -87,6 +94,7 @@ export const PlayingCards = [
         karta: 'kralj',
         id: 8,
         image: kralj_karo,
+        savable: 'yes',
     },
     {
         title: 'dama_herc',
@@ -94,6 +102,7 @@ export const PlayingCards = [
         karta: 'dama',
         id: 9,
         image: dama_herc,
+        savable: 'must',
     },
     {
         title: 'dama_pik',
@@ -101,6 +110,7 @@ export const PlayingCards = [
         karta: 'dama',
         id: 10,
         image: dama_pik,
+        savable: 'must',
     },
     {
         title: 'dama_tref',
@@ -108,6 +118,7 @@ export const PlayingCards = [
         karta: 'dama',
         id: 11,
         image: dama_tref,
+        savable: 'must',
     },
     {
         title: 'dama_karo',
@@ -115,6 +126,7 @@ export const PlayingCards = [
         karta: 'dama',
         id: 12,
         image: dama_karo,
+        savable: 'must',
     },
     {
         title: 'decko_herc',
@@ -122,6 +134,7 @@ export const PlayingCards = [
         karta: 'decko',
         id: 13,
         image: decko_herc,
+        savable: 'yes',
     },
     {
         title: 'decko_pik',
@@ -129,6 +142,7 @@ export const PlayingCards = [
         karta: 'decko',
         id: 14,
         image: decko_pik,
+        savable: 'yes',
     },
     {
         title: 'decko_tref',
@@ -136,6 +150,7 @@ export const PlayingCards = [
         karta: 'decko',
         id: 15,
         image: decko_tref,
+        savable: 'yes',
     },
     {
         title: 'decko_karo',
@@ -143,6 +158,7 @@ export const PlayingCards = [
         karta: 'decko',
         id: 16,
         image: decko_karo,
+        savable: 'yes',
     },
     {
         title: 'desetka_herc',
@@ -150,6 +166,7 @@ export const PlayingCards = [
         karta: 'desetka',
         id: 17,
         image: desetka_herc,
+        savable: 'must',
     },
     {
         title: 'desetka_pik',
@@ -157,6 +174,7 @@ export const PlayingCards = [
         karta: 'desetka',
         id: 18,
         image: desetka_pik,
+        savable: 'must',
     },
     {
         title: 'desetka_tref',
@@ -164,6 +182,7 @@ export const PlayingCards = [
         karta: 'desetka',
         id: 19,
         image: desetka_tref,
+        savable: 'must',
     },
     {
         title: 'desetka_karo',
@@ -171,6 +190,7 @@ export const PlayingCards = [
         karta: 'desetka',
         id: 20,
         image: desetka_karo,
+        savable: 'must',
     },
     {
         title: 'devetka_herc',
@@ -178,6 +198,7 @@ export const PlayingCards = [
         karta: 'devetka',
         id: 21,
         image: devetka_herc,
+        savable: 'no',
     },
     {
         title: 'devetka_pik',
@@ -185,6 +206,7 @@ export const PlayingCards = [
         karta: 'devetka',
         id: 22,
         image: devetka_pik,
+        savable: 'no',
     },
     {
         title: 'devetka_tref',
@@ -192,6 +214,7 @@ export const PlayingCards = [
         karta: 'devetka',
         id: 23,
         image: devetka_tref,
+        savable: 'no',
     },
     {
         title: 'devetka_karo',
@@ -199,6 +222,7 @@ export const PlayingCards = [
         karta: 'devetka',
         id: 24,
         image: devetka_karo,
+        savable: 'no',
     },
     {
         title: 'osmica_herc',
@@ -206,6 +230,7 @@ export const PlayingCards = [
         karta: 'osmica',
         id: 25,
         image: osmica_herc,
+        savable: 'no',
     },
     {
         title: 'osmica_pik',
@@ -213,6 +238,7 @@ export const PlayingCards = [
         karta: 'osmica',
         id: 26,
         image: osmica_pik,
+        savable: 'no',
     },
     {
         title: 'osmica_tref',
@@ -220,6 +246,7 @@ export const PlayingCards = [
         karta: 'osmica',
         id: 27,
         image: osmica_tref,
+        savable: 'no',
     },
     {
         title: 'osmica_karo',
@@ -227,6 +254,7 @@ export const PlayingCards = [
         karta: 'osmica',
         id: 28,
         image: osmica_karo,
+        savable: 'no',
     },
     {
         title: 'sedmica_herc',
@@ -234,6 +262,7 @@ export const PlayingCards = [
         karta: 'sedmica',
         id: 29,
         image: sedmica_herc,
+        savable: 'no',
     },
     {
         title: 'sedmica_pik',
@@ -241,6 +270,7 @@ export const PlayingCards = [
         karta: 'sedmica',
         id: 30,
         image: sedmica_pik,
+        savable: 'no',
     },
     {
         title: 'sedmica_tref',
@@ -248,6 +278,7 @@ export const PlayingCards = [
         karta: 'sedmica',
         id: 31,
         image: sedmica_tref,
+        savable: 'no',
     },
     {
         title: 'sedmica_karo',
@@ -255,5 +286,6 @@ export const PlayingCards = [
         karta: 'sedmica',
         id: 32,
         image: sedmica_karo,
+        savable: 'no',
     },
 ]

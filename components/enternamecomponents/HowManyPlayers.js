@@ -6,7 +6,7 @@ import {Colors} from '../../static/Colors';
 const HowManyPlayers = ({OnNextPress, numberOfPlayers, numberOfPlayersInputHandler}) => {
   return (
     <>
-      <Text style={styles.howManyPlayersText}>How Many Players?</Text>
+      <Text style={styles.howManyPlayersText} adjustsFontSizeToFit>NUMBER OF PLAYERS</Text>
       <View style={styles.inputAndNextButtonContainer}>
         <View style={styles.inputContainer}>
           <TextInput
@@ -20,7 +20,6 @@ const HowManyPlayers = ({OnNextPress, numberOfPlayers, numberOfPlayersInputHandl
             onChangeText={numberOfPlayersInputHandler}
           />
         </View>
-        <PrimaryButton onPress={OnNextPress}>Next</PrimaryButton>
       </View>
     </>
   )
@@ -29,24 +28,24 @@ const HowManyPlayers = ({OnNextPress, numberOfPlayers, numberOfPlayersInputHandl
 const styles = StyleSheet.create({
     howManyPlayersText:{
         textAlign: 'center',
-        fontSize: 28,
+        color: Colors.third,
+        fontSize: 48,
         fontWeight: 'bold',
-        marginBottom: 24,
+        marginBottom: 6,
     },
     inputHowManyPlayers:{
         fontSize: 32,
+        width: '100%',
         borderBottomWidth: 3,
-        borderBottomColor: Colors.primary,
-        width: 60,
+        marginBottom: 16,
+        borderBottomColor: Colors.third,
         textAlign: 'center',
+        width: 70,
     },
     inputAndNextButtonContainer:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
         alignItems: 'center',
-        width: '100%',
-        maxWidth: 300,
+        display: 'flex',
+        paddingVertical: 12,
     },    
 })
 
