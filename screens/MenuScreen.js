@@ -7,7 +7,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
-import background from '../assets/madarske-karte/bg.png';
+import background from '../assets/madarske-karte/bg.jpg';
 import {Colors} from '../static/Colors';
 
 import Menu from '../components/Menu';
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   bgImage: {
-    opacity: 0.9,
+    opacity: 1,
   },
   menuContent: {
     flex: 3,

@@ -5,12 +5,11 @@ import {Colors} from '../../static/Colors';
 import PrimaryButton from '../PrimaryButton';
 
 const PlayerNames = ({
-  playerNamesHandler,
   choosenNumOfPlayers,
   onPlayersNameInputHandler,
   currentPlayerName,
   playersCounter,
-  playersNames,
+  playersNames
 }) => {
 
   const navigation = useNavigation();
@@ -34,7 +33,7 @@ const PlayerNames = ({
 
   return (
     <View style={{width: '100%', alignItems: 'center'}}>
-      <Text>{playersCounter}.</Text>
+      <Text style={styles.numberOfPlayersText}>{playersCounter}.</Text>
       <Text style={styles.titleText}>PLAYER NAME</Text>
       <TextInput
         placeholder="name"
@@ -42,7 +41,6 @@ const PlayerNames = ({
         onChangeText={onPlayersNameInputHandler}
         value={currentPlayerName}
       />
-      <PrimaryButton onPress={playerNamesHandler}>Submit Name</PrimaryButton>
     </View>
   );
 };
@@ -53,19 +51,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 2,
     textAlign: 'center',
+    color: Colors.third,
   },
   inputStyle: {
-    width: '90%',
+    maxWidth: 300,
+    width: '60%',
     height: 46,
     fontSize: 32,
-    borderColor: Colors.primary,
-    borderWidth: 3,
-    backgroundColor: Colors.primary,
+    borderBottomColor: Colors.secondary,
+    borderBottomWidth: 4,
     textAlign: 'center',
     color: Colors.secondary,
     marginBottom: 24,
-    marginTop: 16,
   },
+  numberOfPlayersText:{
+    textAlign: 'center',
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: Colors.third,
+  }
 });
 
 export default PlayerNames;

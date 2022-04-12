@@ -6,14 +6,13 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
-  Text,
 } from 'react-native';
 import NamesButton from '../components/NamesButton';
 import {Colors} from '../static/Colors';
 import {useNavigation} from '@react-navigation/native';
 import HowManyPlayers from '../components/enternamecomponents/HowManyPlayers';
 import PlayerNames from '../components/enternamecomponents/PlayerNames';
-import background from '../assets/madarske-karte/input-bg.png';
+import background from '../assets/madarske-karte/input-bg.jpg';
 import Header from '../components/Header';
 
 const EnterNamesScreen = () => {
@@ -29,6 +28,8 @@ const EnterNamesScreen = () => {
   //counter do broja igraca
   const [playersCounter, setPlayersCounter] = useState(1);
 
+  console.log(playersNames);
+
   function onBackToMenuPress() {
     navigation.navigate('MenuScreen');
   }
@@ -41,7 +42,15 @@ const EnterNamesScreen = () => {
   }
 
   function onBackPress() {
-    setIsNextButtonSuccess(!isNextButtonSuccess);
+    if(isNextButtonSuccess===true){
+      //DORADITI DA AKO SE N IGRAC UPISUJE DA IDE NAZAD
+      setIsNextButtonSuccess(false);
+      setPlayersNames([]);
+      setPlayersCounter(1);
+    }
+    if(isNextButtonSuccess===false){
+      onBackToMenuPress();
+    }
   }
 
   function onPlayersNameInputHandler(text) {
@@ -65,10 +74,10 @@ const EnterNamesScreen = () => {
     let choosenNumberOfPlayers = parseInt(numberOfPlayers);
     if (
       choosenNumberOfPlayers <= 1 ||
-      choosenNumberOfPlayers >= 20 ||
+      choosenNumberOfPlayers >= 12 ||
       isNaN(choosenNumberOfPlayers)
     ) {
-      Alert.alert('Invalid number', 'Number has to be between 2 and 20', [
+      Alert.alert('Invalid number', 'Number has to be between 2 and 12', [
         {
           text: 'Okay',
           style: 'destructive',
@@ -78,18 +87,19 @@ const EnterNamesScreen = () => {
       return;
     }
     setChoosenNumOfplayers(choosenNumberOfPlayers);
-    setIsNextButtonSuccess(!isNextButtonSuccess);
+    setIsNextButtonSuccess(true);
     setNumberOfPlayers(null);
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={true}>
+    <TouchableWithoutFeedback  onPress={() => Keyboard.dismiss()}>
+    <View style={styles.enterNamesScreenContainer}>
       <ImageBackground
         source={background}
         style={styles.enterNamesScreenContainer}
       >
         <Header />
-        <View style={styles.mainInfoContainer}>
+        <View style={styles.mainInfoContainer} keyboardShouldPersistTaps="handled">
           {isNextButtonSuccess ? (
             <PlayerNames
               playersCounter={playersCounter}
@@ -107,18 +117,20 @@ const EnterNamesScreen = () => {
           )}
           <View style={styles.buttonsContainer}>
           <View style={styles.leftButtonContainer}>
-          <NamesButton onPress={onBackToMenuPress}>
-            Back
+          <NamesButton onPress={onBackPress}>
+            { isNextButtonSuccess ? 'Back' : 'Menu'}
           </NamesButton>
           </View>
           <View style={styles.rightButtonContainer}>
-          <NamesButton onPress={onNextPress}>Next</NamesButton>
+          { isNextButtonSuccess ?<NamesButton onPress={playerNamesHandler}>Submit</NamesButton> :
+          <NamesButton onPress={onNextPress}>Next</NamesButton>}
           </View>
         </View>
         </View>
         <View style={styles.footerContainer}/>
       </ImageBackground>
-    </TouchableWithoutFeedback>
+      </View>
+      </TouchableWithoutFeedback>
   );
 };
 

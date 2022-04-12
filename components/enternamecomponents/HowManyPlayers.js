@@ -1,14 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
 import PrimaryButton from '../PrimaryButton';
 import {Colors} from '../../static/Colors';
+import Icon from 'react-native-vector-icons';
 
 const HowManyPlayers = ({OnNextPress, numberOfPlayers, numberOfPlayersInputHandler}) => {
+
   return (
     <>
       <Text style={styles.howManyPlayersText} adjustsFontSizeToFit>NUMBER OF PLAYERS</Text>
       <View style={styles.inputAndNextButtonContainer}>
         <View style={styles.inputContainer}>
+        
           <TextInput
             style={styles.inputHowManyPlayers}
             placeholder="ex.4"
