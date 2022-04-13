@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import NamesButton from '../components/NamesButton';
 import {Colors} from '../static/Colors';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import HowManyPlayers from '../components/enternamecomponents/HowManyPlayers';
 import PlayerNames from '../components/enternamecomponents/PlayerNames';
 import background from '../assets/madarske-karte/input-bg.jpg';
@@ -17,6 +17,7 @@ import Header from '../components/Header';
 
 const EnterNamesScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   const [numberOfPlayers, setNumberOfPlayers] = useState('');
   //izabran broj igraca
   const [choosenNumOfPlayers, setChoosenNumOfplayers] = useState(0);
@@ -27,6 +28,7 @@ const EnterNamesScreen = () => {
   const [isNextButtonSuccess, setIsNextButtonSuccess] = useState(false);
   //counter do broja igraca
   const [playersCounter, setPlayersCounter] = useState(1);
+
 
   console.log(playersNames);
 
@@ -108,6 +110,7 @@ const EnterNamesScreen = () => {
               currentPlayerName={currentPlayerName}
               choosenNumOfPlayers={choosenNumOfPlayers}
               playersNames={playersNames}
+              onBackPress={onBackPress}
             />
           ) : (
             <HowManyPlayers

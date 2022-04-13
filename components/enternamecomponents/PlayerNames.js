@@ -9,7 +9,8 @@ const PlayerNames = ({
   onPlayersNameInputHandler,
   currentPlayerName,
   playersCounter,
-  playersNames
+  playersNames,
+  onBackPress,
 }) => {
 
   const navigation = useNavigation();
@@ -20,6 +21,7 @@ const PlayerNames = ({
         otherParams: {
           choosenNumOfPlayers,
           playersNames,
+          onBackPress,
         },
       });
     }
@@ -49,19 +51,21 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 42,
     fontWeight: 'bold',
-    letterSpacing: 2,
+    letterSpacing: 3,
     textAlign: 'center',
-    color: Colors.third,
+    color: 'black',
+    marginBottom: 32,
   },
   inputStyle: {
     maxWidth: 300,
     width: '60%',
     height: 46,
     fontSize: 32,
-    borderBottomColor: Colors.secondary,
-    borderBottomWidth: 4,
+    borderBottomColor: Colors.third,
+    borderBottomWidth: 7,
     textAlign: 'center',
-    color: Colors.secondary,
+    color: 'black',
+    fontWeight: 'bold',
     marginBottom: 24,
   },
   numberOfPlayersText:{

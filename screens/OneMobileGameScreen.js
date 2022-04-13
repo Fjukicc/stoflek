@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
+import {Animated, StyleProp, StyleSheet,ViewStyle, Image, ImageBackground, Dimensions} from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import background from '../assets/madarske-karte/bg-game.jpg';
-import {LinearGradient} from 'expo-linear-gradient';
+import background from '../assets/madarske-karte/play-bg.jpg';
+
+//SWIPE RIGHT
+import {
+  Swipeable
+} from 'react-native-gesture-handler/Swipeable';
 
 //NAVBAR
 import GameNav from '../components/gamecomponents/GameNav';
@@ -17,7 +21,11 @@ import {PlayingCards} from '../PlayingCards';
 import {Colors} from '../static/Colors';
 import CardScreen from '../components/gamecomponents/CardScreen';
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
 const OneMobileGameScreen = () => {
+
+
   //KORISTI NAVIGACIJU
   const navigation = useNavigation();
   const [cardRule, setCardRule] = useState(0);
@@ -52,12 +60,20 @@ const OneMobileGameScreen = () => {
     navigation.navigate('MenuScreen');
   }
 
+    //SWIPE
+    const leftSwipe = () =>{
+      return(
+        <CardScreen changeCardHandler={changeCardHandler} cardDeck={cardDeck}
+          updateCard={updateCard} cardRule={cardRule}
+        />
+      )
+    }
+
   return (
-    <LinearGradient colors={['#004d00', 'black']} style={styles.globalContainer}>
       <ImageBackground
         source={background}
         resizeMode="cover"
-        style={styles.contentContainer}
+        style={styles.globalContainer}
         imageStyle={styles.bgImage}
       >
       <GameNav
@@ -71,7 +87,6 @@ const OneMobileGameScreen = () => {
           updateCard={updateCard} cardRule={cardRule}
         />
       </ImageBackground>
-    </LinearGradient>
   );
 };
 
@@ -79,14 +94,12 @@ const styles = StyleSheet.create({
   cardContainer: {},
   globalContainer: {
     flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   bgImage: {
-    opacity: 0.3,
+    opacity: 1,
   },
 });
 

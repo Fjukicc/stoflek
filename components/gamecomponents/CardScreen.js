@@ -20,11 +20,11 @@ const CardScreen = ({changeCardHandler, cardDeck, updateCard, cardRule}) => {
         </View>
         <View style={styles.buttonsContainer}>
         <View>
-          <PrimaryButton onPress={changeCardHandler}>NEXT</PrimaryButton>
-        </View>
-        <View>
           <PrimaryButton onPress={() => console.log('Show Cards')}>
             SHOW CARDS
+          </PrimaryButton>
+          <PrimaryButton onPress={changeCardHandler}>
+            NEW
           </PrimaryButton>
         </View>
         </View>
